@@ -1,18 +1,12 @@
-<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
-<title>Happy Birthday PhuowngLynk</title>
-<style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;
-font-family:system-ui,sans-serif;background:linear-gradient(135deg,#ffd6e7,#e4d7ff);overflow:hidden;color:#7b3158}
-.c{width:min(90%,520px);padding:38px 24px;text-align:center;background:#ffffffdd;border-radius:28px;box-shadow:0 15px 50px #7b315833;animation:p .9s ease}
-h1{font-size:clamp(30px,8vw,52px);margin:0 0 10px}p{font-size:19px;line-height:1.6}.cake{font-size:75px;animation:b 1.2s infinite alternate}
-span{position:fixed;top:-30px;font-size:24px;animation:f linear infinite}
-@keyframes p{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes b{to{transform:translateY(-9px)}}@keyframes f{to{transform:translateY(110vh) rotate(360deg)}}
-</style>
-<div class=c><div class=cake>🎂</div><h1>🎉 Chúc mừng sinh nhật PhuowngLynk! 🎉</h1>
-<p>Chúc bạn tuổi mới thật vui vẻ, luôn rạng rỡ, gặp thật nhiều điều may mắn và có thật nhiều khoảnh khắc đáng nhớ! 💖</p>
-<p>✨ Happy Birthday! ✨</p></div>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Birthday PhuowngLynk</title><style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#020807;color:#f58aa5;font-family:Consolas,monospace}canvas{position:fixed;inset:0;width:100%;height:100%}.scene{position:fixed;inset:0;display:grid;place-items:center;text-align:center;padding:20px}.message{max-width:95vw;opacity:0;transform:scale(.72);transition:opacity 1s,transform 1.2s}.show{opacity:1;transform:scale(1)}.big{font-weight:900;font-size:clamp(42px,11vw,125px);line-height:.9;color:#f08aa3;text-shadow:0 0 7px #f08aa3,0 0 24px #9b304f}.sub{margin-top:26px;font-family:system-ui,sans-serif;font-size:clamp(18px,4vw,34px);color:#ffd7df;text-shadow:0 0 12px #d35a77;line-height:1.45}.hint{position:fixed;bottom:15px;width:100%;text-align:center;color:#c78696;font:13px system-ui,sans-serif}
+</style></head><body><canvas id="rain"></canvas><div class="scene"><div id="m" class="message"><div id="big" class="big"></div><div id="sub" class="sub"></div></div></div><div class="hint">✨ Một lời chúc nhỏ dành riêng cho bạn ✨</div>
 <script>
-for(let i=0;i<28;i++){let s=document.createElement('span');s.textContent=['🎈','🎊','✨','💖'][i%4];
-s.style.left=Math.random()*100+'vw';s.style.animationDuration=3+Math.random()*5+'s';s.style.animationDelay=-Math.random()*6+'s';document.body.append(s)}
-</script>
+const c=document.getElementById('rain'),x=c.getContext('2d');let W,H,drops=[],font=16;
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;font=Math.max(13,Math.min(20,W/75));drops=Array.from({length:Math.ceil(W/font)},()=>Math.random()*H/font)}addEventListener('resize',resize);resize();
+const chars='LOVEYOUHAPPYBIRTHDAY0123456789♡✦';
+(function rain(){x.fillStyle='rgba(2,8,7,.18)';x.fillRect(0,0,W,H);x.font=font+'px Consolas,monospace';for(let i=0;i<drops.length;i++){let ch=chars[(Math.random()*chars.length)|0],px=i*font,py=drops[i]*font;x.fillStyle=Math.random()<.12?'#f58aa5':'#653541';x.fillText(ch,px,py);if(py>H&&Math.random()>.975)drops[i]=0;else drops[i]+=.7}requestAnimationFrame(rain)})();
+const m=document.getElementById('m'),big=document.getElementById('big'),sub=document.getElementById('sub');
+const scenes=[['31.08.1991','Một ngày thật đặc biệt...'],['HAPPY BIRTHDAY','PhuowngLynk 🎂'],['PHUOWNGLYNK','Chúc bạn tuổi mới thật vui, thật may mắn và luôn có những điều khiến bạn mỉm cười. 💖'],['🎉','Chúc mừng sinh nhật! ✨']];
+let i=0;function show(){m.classList.remove('show');setTimeout(()=>{big.textContent=scenes[i][0];sub.textContent=scenes[i][1];m.classList.add('show');i=(i+1)%scenes.length},900)}show();setInterval(show,5000);
+</script></body></html>
