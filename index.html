@@ -1,0 +1,18 @@
+<!doctype html><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Happy Birthday PhuowngLynk</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;
+font-family:system-ui,sans-serif;background:linear-gradient(135deg,#ffd6e7,#e4d7ff);overflow:hidden;color:#7b3158}
+.c{width:min(90%,520px);padding:38px 24px;text-align:center;background:#ffffffdd;border-radius:28px;box-shadow:0 15px 50px #7b315833;animation:p .9s ease}
+h1{font-size:clamp(30px,8vw,52px);margin:0 0 10px}p{font-size:19px;line-height:1.6}.cake{font-size:75px;animation:b 1.2s infinite alternate}
+span{position:fixed;top:-30px;font-size:24px;animation:f linear infinite}
+@keyframes p{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes b{to{transform:translateY(-9px)}}@keyframes f{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+<div class=c><div class=cake>🎂</div><h1>🎉 Chúc mừng sinh nhật PhuowngLynk! 🎉</h1>
+<p>Chúc bạn tuổi mới thật vui vẻ, luôn rạng rỡ, gặp thật nhiều điều may mắn và có thật nhiều khoảnh khắc đáng nhớ! 💖</p>
+<p>✨ Happy Birthday! ✨</p></div>
+<script>
+for(let i=0;i<28;i++){let s=document.createElement('span');s.textContent=['🎈','🎊','✨','💖'][i%4];
+s.style.left=Math.random()*100+'vw';s.style.animationDuration=3+Math.random()*5+'s';s.style.animationDelay=-Math.random()*6+'s';document.body.append(s)}
+</script>
